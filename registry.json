@@ -1,34 +1,110 @@
 {
-  "$schema": "https://ui.shadcn.com/schema.json",
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
   "name": "catlife-ui",
-  "type": "registry:ui",
-  "registryDependencies": [],
-  "dependencies": [],
-  "devDependencies": [],
-  "tailwind": {
-    "config": {
-      "theme": {
-        "extend": {
-          "colors": {
-            "catlife-primary": "#f98830",
-            "catlife-primary-hover": "#f99830",
-            "catlife-primary-active": "#f27100",
-            "catlife-background": "#fffaf4",
-            "catlife-surface": "#ffffff",
-            "catlife-border": "#161616",
-            "catlife-text-primary": "#161616",
-            "catlife-text-inverse": "#ffffff",
-            "catlife-text-muted": "#6b7280"
+  "homepage": "https://github.com/marcoaurelio-boop/v0-design-system-registry",
+  "items": [
+    {
+      "name": "catlife-button",
+      "type": "registry:ui",
+      "title": "Catlife Button",
+      "description": "A customizable button component with Catlife design system styling, supporting multiple variants and sizes.",
+      "dependencies": ["@radix-ui/react-slot", "class-variance-authority"],
+      "files": [
+        {
+          "path": "components/ui/catlife-button.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "tailwind": {
+        "config": {
+          "theme": {
+            "extend": {
+              "colors": {
+                "catlife-primary": "#f98830",
+                "catlife-primary-hover": "#f99830",
+                "catlife-primary-active": "#f27100",
+                "catlife-background": "#fffaf4",
+                "catlife-border": "#161616",
+                "catlife-text-primary": "#161616",
+                "catlife-text-inverse": "#ffffff"
+              }
+            }
           }
         }
       }
-    }
-  },
-  "cssVars": {},
-  "files": [
+    },
     {
-      "path": "lib/utils.ts",
-      "type": "registry:lib"
+      "name": "pill-container",
+      "type": "registry:ui",
+      "title": "Pill Container",
+      "description": "A rounded pill-shaped container component with flexible background colors and padding, perfect for badges and tags.",
+      "files": [
+        {
+          "path": "components/ui/pill-container.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "tailwind": {
+        "config": {
+          "theme": {
+            "extend": {
+              "colors": {
+                "catlife-primary": "#f98830",
+                "catlife-background": "#fffaf4"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "catlife-card",
+      "type": "registry:ui",
+      "title": "Catlife Card",
+      "description": "A flexible card component with rounded corners, black borders, and support for disabled states with reduced opacity.",
+      "files": [
+        {
+          "path": "components/ui/catlife-card.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "tailwind": {
+        "config": {
+          "theme": {
+            "extend": {
+              "colors": {
+                "catlife-primary": "#f98830",
+                "catlife-background": "#fffaf4",
+                "catlife-border": "#161616"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "carousel",
+      "type": "registry:ui",
+      "title": "Carousel",
+      "description": "A responsive carousel component that displays multiple items with an active/focused state, featuring smooth transitions and pagination dots.",
+      "files": [
+        {
+          "path": "components/ui/carousel.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "registryDependencies": ["catlife-card"],
+      "tailwind": {
+        "config": {
+          "theme": {
+            "extend": {
+              "colors": {
+                "catlife-primary": "#f98830"
+              }
+            }
+          }
+        }
+      }
     }
   ]
 }
