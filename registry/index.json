@@ -1,0 +1,54 @@
+[
+  {
+    "name": "catlife-button",
+    "type": "registry:ui",
+    "description": "A customizable button component with Catlife design system styling. Supports multiple variants (primary, cta, dark) and sizes (default, sm, lg) with shadow effects and smooth transitions.",
+    "dependencies": ["@radix-ui/react-slot", "class-variance-authority"],
+    "registryDependencies": [],
+    "files": [
+      {
+        "path": "components/ui/catlife-button.tsx",
+        "type": "registry:ui"
+      }
+    ]
+  },
+  {
+    "name": "pill-container",
+    "type": "registry:ui",
+    "description": "A pill-shaped container component with rounded edges, glassmorphism effect, and flexible background. Perfect for navigation bars, tags, or decorative containers.",
+    "dependencies": [],
+    "registryDependencies": [],
+    "files": [
+      {
+        "path": "components/ui/pill-container.tsx",
+        "type": "registry:ui"
+      }
+    ]
+  },
+  {
+    "name": "catlife-card",
+    "type": "registry:ui",
+    "description": "A card component with rounded corners, black border, and support for disabled state. Includes variants for default (cream) and orange backgrounds with smooth hover effects.",
+    "dependencies": [],
+    "registryDependencies": [],
+    "files": [
+      {
+        "path": "components/ui/catlife-card.tsx",
+        "type": "registry:ui"
+      }
+    ]
+  },
+  {
+    "name": "carousel",
+    "type": "registry:ui",
+    "description": "A carousel component that displays multiple items with focus on the active item. Features clickable cards, pagination dots, and smooth transitions. Active card scales up while inactive cards are dimmed.",
+    "dependencies": [],
+    "registryDependencies": [],
+    "files": [
+      {
+        "path": "components/ui/carousel.tsx",
+        "type": "registry:ui"
+      }
+    ]
+  }
+]

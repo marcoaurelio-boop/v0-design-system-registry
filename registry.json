@@ -1,102 +1,34 @@
-[
-  {
-    "name": "catlife-button",
-    "type": "registry:ui",
-    "description": "A customizable button component with Catlife design system styling. Supports multiple variants (default, orange, outline, ghost) and sizes (default, sm, lg, icon).",
-    "dependencies": ["@radix-ui/react-slot", "class-variance-authority"],
-    "registryDependencies": [],
-    "files": [
-      {
-        "path": "components/ui/catlife-button.tsx",
-        "type": "registry:ui"
-      }
-    ],
-    "tailwind": {
-      "config": {
-        "theme": {
-          "extend": {
-            "colors": {
-              "catlife-primary": "#f49834",
-              "catlife-background": "#fffaf4",
-              "catlife-accent": "#ffd094"
-            }
+{
+  "$schema": "https://ui.shadcn.com/schema.json",
+  "name": "catlife-ui",
+  "type": "registry:ui",
+  "registryDependencies": [],
+  "dependencies": [],
+  "devDependencies": [],
+  "tailwind": {
+    "config": {
+      "theme": {
+        "extend": {
+          "colors": {
+            "catlife-primary": "#f98830",
+            "catlife-primary-hover": "#f99830",
+            "catlife-primary-active": "#f27100",
+            "catlife-background": "#fffaf4",
+            "catlife-surface": "#ffffff",
+            "catlife-border": "#161616",
+            "catlife-text-primary": "#161616",
+            "catlife-text-inverse": "#ffffff",
+            "catlife-text-muted": "#6b7280"
           }
         }
       }
     }
   },
-  {
-    "name": "pill-container",
-    "type": "registry:ui",
-    "description": "A pill-shaped container component with rounded edges and flexible background colors. Perfect for tags, badges, or decorative containers.",
-    "dependencies": [],
-    "registryDependencies": [],
-    "files": [
-      {
-        "path": "components/ui/pill-container.tsx",
-        "type": "registry:ui"
-      }
-    ],
-    "tailwind": {
-      "config": {
-        "theme": {
-          "extend": {
-            "colors": {
-              "catlife-primary": "#f49834",
-              "catlife-background": "#fffaf4"
-            }
-          }
-        }
-      }
+  "cssVars": {},
+  "files": [
+    {
+      "path": "lib/utils.ts",
+      "type": "registry:lib"
     }
-  },
-  {
-    "name": "catlife-card",
-    "type": "registry:ui",
-    "description": "A card component with rounded corners, black border, and support for disabled state. Includes variants for default (cream) and orange backgrounds.",
-    "dependencies": [],
-    "registryDependencies": [],
-    "files": [
-      {
-        "path": "components/ui/catlife-card.tsx",
-        "type": "registry:ui"
-      }
-    ],
-    "tailwind": {
-      "config": {
-        "theme": {
-          "extend": {
-            "colors": {
-              "catlife-primary": "#f49834",
-              "catlife-background": "#fffaf4"
-            }
-          }
-        }
-      }
-    }
-  },
-  {
-    "name": "carousel",
-    "type": "registry:ui",
-    "description": "A carousel component that displays multiple items with focus on the active item. Features clickable cards, pagination dots, and smooth transitions. Active card scales up while inactive cards are dimmed.",
-    "dependencies": [],
-    "registryDependencies": [],
-    "files": [
-      {
-        "path": "components/ui/carousel.tsx",
-        "type": "registry:ui"
-      }
-    ],
-    "tailwind": {
-      "config": {
-        "theme": {
-          "extend": {
-            "colors": {
-              "catlife-primary": "#f49834"
-            }
-          }
-        }
-      }
-    }
-  }
-]
+  ]
+}

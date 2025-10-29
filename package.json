@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build": "npx shadcn build && next build",
+    "build": "pnpm build:registry && next build",
     "build:registry": "npx shadcn build",
     "dev": "next dev",
     "lint": "eslint .",
