@@ -1,0 +1,35 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "catlife-button",
+  "type": "registry:ui",
+  "title": "Catlife Button",
+  "description": "A customizable button component with Catlife design system styling, supporting multiple variants and sizes.",
+  "dependencies": [
+    "@radix-ui/react-slot",
+    "class-variance-authority"
+  ],
+  "files": [
+    {
+      "path": "components/ui/catlife-button.tsx",
+      "content": "import type * as React from \"react\"\nimport { Slot } from \"@radix-ui/react-slot\"\nimport { cva, type VariantProps } from \"class-variance-authority\"\nimport { cn } from \"@/lib/utils\"\n\nconst catlifeButtonVariants = cva(\n  \"inline-flex items-center justify-center gap-2 whitespace-nowrap text-base font-bold transition-all duration-200 ease-in-out disabled:pointer-events-none disabled:opacity-50 outline-none border-2\",\n  {\n    variants: {\n      variant: {\n        primary:\n          \"bg-catlife-surface text-catlife-text-primary border-catlife-border shadow-[2px_2px_0px_0px_rgba(22,22,22,1)] hover:shadow-[3px_3px_0px_0px_rgba(22,22,22,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] active:shadow-[1px_1px_0px_0px_rgba(22,22,22,1)] active:translate-x-[1px] active:translate-y-[1px]\",\n        cta: \"bg-catlife-primary text-catlife-text-primary border-catlife-border shadow-[2px_2px_0px_0px_rgba(22,22,22,1)] hover:bg-catlife-primary-hover hover:shadow-[3px_3px_0px_0px_rgba(22,22,22,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] active:bg-catlife-primary-active active:shadow-[1px_1px_0px_0px_rgba(22,22,22,1)] active:translate-x-[1px] active:translate-y-[1px]\",\n        dark: \"bg-catlife-text-primary text-catlife-text-inverse border-catlife-primary shadow-[2px_2px_0px_0px_rgba(249,152,48,1)] hover:border-catlife-primary-hover hover:shadow-[3px_3px_0px_0px_rgba(249,152,48,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] active:border-catlife-primary-active active:shadow-[1px_1px_0px_0px_rgba(242,113,0,1)] active:translate-x-[1px] active:translate-y-[1px]\",\n      },\n      size: {\n        default: \"h-12 px-8 py-3 rounded-full\",\n        lg: \"h-14 px-10 py-4 rounded-full text-lg\",\n        sm: \"h-10 px-6 py-2 rounded-full text-sm\",\n      },\n    },\n    defaultVariants: {\n      variant: \"primary\",\n      size: \"default\",\n    },\n  },\n)\n\ninterface CatlifeButtonProps extends React.ComponentProps<\"button\">, VariantProps<typeof catlifeButtonVariants> {\n  asChild?: boolean\n  primaryColor?: string\n  secondaryColor?: string\n}\n\nfunction CatlifeButton({\n  className,\n  variant,\n  size,\n  asChild = false,\n  primaryColor,\n  secondaryColor,\n  style,\n  ...props\n}: CatlifeButtonProps) {\n  const Comp = asChild ? Slot : \"button\"\n\n  const customStyle =\n    primaryColor || secondaryColor\n      ? {\n          backgroundColor: primaryColor,\n          color: secondaryColor,\n          ...style,\n        }\n      : style\n\n  return <Comp className={cn(catlifeButtonVariants({ variant, size, className }))} style={customStyle} {...props} />\n}\n\nexport { CatlifeButton, catlifeButtonVariants }\n",
+      "type": "registry:component"
+    }
+  ],
+  "tailwind": {
+    "config": {
+      "theme": {
+        "extend": {
+          "colors": {
+            "catlife-primary": "#f98830",
+            "catlife-primary-hover": "#f99830",
+            "catlife-primary-active": "#f27100",
+            "catlife-background": "#fffaf4",
+            "catlife-border": "#161616",
+            "catlife-text-primary": "#161616",
+            "catlife-text-inverse": "#ffffff"
+          }
+        }
+      }
+    }
+  }
+}

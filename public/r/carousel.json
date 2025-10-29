@@ -1,0 +1,28 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "carousel",
+  "type": "registry:ui",
+  "title": "Carousel",
+  "description": "A responsive carousel component that displays multiple items with an active/focused state, featuring smooth transitions and pagination dots.",
+  "registryDependencies": [
+    "catlife-card"
+  ],
+  "files": [
+    {
+      "path": "components/ui/carousel.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { cn } from \"@/lib/utils\"\n\ninterface CarouselProps {\n  children: React.ReactNode[]\n  defaultIndex?: number\n  onSlideChange?: (index: number) => void\n  className?: string\n}\n\nexport function Carousel({ children, defaultIndex = 0, onSlideChange, className }: CarouselProps) {\n  const [activeIndex, setActiveIndex] = React.useState(defaultIndex)\n\n  const handleSlideChange = (newIndex: number) => {\n    if (newIndex >= 0 && newIndex < children.length) {\n      setActiveIndex(newIndex)\n      onSlideChange?.(newIndex)\n    }\n  }\n\n  return (\n    <div className={cn(\"relative w-full\", className)}>\n      {/* Cards container */}\n      <div className=\"flex items-center justify-center gap-6 px-4 py-8\">\n        {React.Children.map(children, (child, index) => {\n          const isActive = index === activeIndex\n\n          return (\n            <div\n              key={index}\n              onClick={() => handleSlideChange(index)}\n              className={cn(\n                \"transition-all duration-300 ease-out cursor-pointer\",\n                isActive ? \"scale-110 z-10\" : \"scale-90 hover:scale-95\",\n              )}\n            >\n              {React.isValidElement(child)\n                ? React.cloneElement(child as React.ReactElement<{ disabled?: boolean }>, {\n                    disabled: !isActive,\n                  })\n                : child}\n            </div>\n          )\n        })}\n      </div>\n\n      {/* Pagination dots */}\n      <div className=\"flex items-center justify-center gap-2 pb-4\">\n        {React.Children.map(children, (_, index) => (\n          <button\n            key={index}\n            onClick={() => handleSlideChange(index)}\n            className={cn(\n              \"h-3 w-3 rounded-full transition-colors duration-200\",\n              index === activeIndex ? \"bg-catlife-primary\" : \"bg-catlife-text-muted/30 hover:bg-catlife-text-muted/50\",\n            )}\n            aria-label={`Go to slide ${index + 1}`}\n          />\n        ))}\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "tailwind": {
+    "config": {
+      "theme": {
+        "extend": {
+          "colors": {
+            "catlife-primary": "#f98830"
+          }
+        }
+      }
+    }
+  }
+}

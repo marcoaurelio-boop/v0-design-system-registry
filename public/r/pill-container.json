@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "pill-container",
+  "type": "registry:ui",
+  "title": "Pill Container",
+  "description": "A rounded pill-shaped container component with flexible background colors and padding, perfect for badges and tags.",
+  "files": [
+    {
+      "path": "components/ui/pill-container.tsx",
+      "content": "import * as React from \"react\"\nimport { cn } from \"@/lib/utils\"\n\nexport interface PillContainerProps extends React.HTMLAttributes<HTMLDivElement> {\n  children: React.ReactNode\n}\n\nconst PillContainer = React.forwardRef<HTMLDivElement, PillContainerProps>(({ className, children, ...props }, ref) => {\n  return (\n    <div\n      ref={ref}\n      className={cn(\n        \"flex items-center justify-between\",\n        \"bg-catlife-background/80\",\n        \"backdrop-blur-xl backdrop-saturate-150\",\n        \"border-2 border-white/60\",\n        \"rounded-full\",\n        \"px-6 py-3\",\n        \"w-full\",\n        \"gap-4\",\n        className,\n      )}\n      {...props}\n    >\n      {children}\n    </div>\n  )\n})\n\nPillContainer.displayName = \"PillContainer\"\n\nexport { PillContainer }\n",
+      "type": "registry:component"
+    }
+  ],
+  "tailwind": {
+    "config": {
+      "theme": {
+        "extend": {
+          "colors": {
+            "catlife-primary": "#f98830",
+            "catlife-background": "#fffaf4"
+          }
+        }
+      }
+    }
+  }
+}

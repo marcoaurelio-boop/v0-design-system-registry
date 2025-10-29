@@ -1,0 +1,27 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "catlife-card",
+  "type": "registry:ui",
+  "title": "Catlife Card",
+  "description": "A flexible card component with rounded corners, black borders, and support for disabled states with reduced opacity.",
+  "files": [
+    {
+      "path": "components/ui/catlife-card.tsx",
+      "content": "import * as React from \"react\"\nimport { cn } from \"@/lib/utils\"\n\nexport interface CatlifeCardProps extends React.HTMLAttributes<HTMLDivElement> {\n  disabled?: boolean\n  variant?: \"default\" | \"orange\"\n}\n\nconst CatlifeCard = React.forwardRef<HTMLDivElement, CatlifeCardProps>(\n  ({ className, children, disabled = false, variant = \"default\", ...props }, ref) => {\n    return (\n      <div\n        ref={ref}\n        className={cn(\n          \"flex flex-col gap-4 rounded-3xl border-2 border-catlife-border p-6 transition-all duration-200\",\n          // Background variants\n          variant === \"default\" && \"bg-catlife-background\",\n          variant === \"orange\" && \"bg-catlife-primary\",\n          // Disabled state\n          disabled && \"pointer-events-none opacity-60\",\n          // Hover effect (only when not disabled)\n          !disabled && \"hover:shadow-md\",\n          className,\n        )}\n        {...props}\n      >\n        {children}\n      </div>\n    )\n  },\n)\n\nCatlifeCard.displayName = \"CatlifeCard\"\n\nexport { CatlifeCard }\n",
+      "type": "registry:component"
+    }
+  ],
+  "tailwind": {
+    "config": {
+      "theme": {
+        "extend": {
+          "colors": {
+            "catlife-primary": "#f98830",
+            "catlife-background": "#fffaf4",
+            "catlife-border": "#161616"
+          }
+        }
+      }
+    }
+  }
+}
